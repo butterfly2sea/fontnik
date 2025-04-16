@@ -11,7 +11,7 @@ import (
 	"golang.org/x/image/math/fixed"
 )
 
-//go:generate protoc --go_out=. glyph.proto
+//go:generate protoc -I. --go_out=. glyph.proto
 
 func NewSDFBuilder(font *truetype.Font, opts ...SDFBuilderOpt) *SDFBuilder {
 	sdfBuilder := &SDFBuilder{
