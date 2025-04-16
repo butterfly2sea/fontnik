@@ -7,8 +7,8 @@ import (
 	"testing"
 
 	"github.com/golang/freetype/truetype"
-	"github.com/golang/protobuf/proto"
 	"github.com/stretchr/testify/require"
+	"google.golang.org/protobuf/proto"
 )
 
 func builderFor(fontFamily string) *SDFBuilder {
@@ -32,7 +32,7 @@ func TestSDFBuilder_Glyph(t *testing.T) {
 	for i := 0; i < 255; i++ {
 		g := builder.Glyph(rune(i))
 		if g != nil {
-			fmt.Printf("%s %d\n", string(*g.Id), *g.Top)
+			fmt.Printf("%d %d\n", g.Id, g.Top)
 			img := DrawGlyph(g, true)
 			SavePNG(fmt.Sprintf("./testdata/NotoSans/%d.png", i), img)
 		}
@@ -51,7 +51,7 @@ func TestSDFBuilder(t *testing.T) {
 			s := builder.Glyphs(rng[0], rng[1])
 			bytes, err := proto.Marshal(s)
 			require.NoError(t, err)
-			ioutil.WriteFile(fmt.Sprintf("./testdata/NotoSans/%d-%d.pbf", rng[0], rng[1]), bytes, os.ModePerm)
+			os.WriteFile(fmt.Sprintf("./testdata/NotoSans/%d-%d.pbf", rng[0], rng[1]), bytes, os.ModePerm)
 		}
 	})
 }
