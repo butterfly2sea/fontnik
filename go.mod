@@ -1,4 +1,4 @@
-module github.com/go-courier/fontnik
+module github.com/butterfly2sea/fontnik
 
 go 1.24
 
