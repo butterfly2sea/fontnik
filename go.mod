@@ -1,11 +1,18 @@
 module github.com/go-courier/fontnik
 
+go 1.24
+
+toolchain go1.24.2
+
 require (
-	github.com/davecgh/go-spew v1.1.0
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0
-	github.com/golang/protobuf v1.3.1
-	github.com/stretchr/testify v1.3.0
-	golang.org/x/image v0.0.0-20190523035834-f03afa92d3ff
+	github.com/stretchr/testify v1.10.0
+	golang.org/x/image v0.26.0
+	google.golang.org/protobuf v1.36.6
 )
 
-go 1.13
+require (
+	github.com/davecgh/go-spew v1.1.1 // indirect
+	github.com/pmezard/go-difflib v1.0.0 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
+)
